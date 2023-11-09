@@ -13,10 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Al Hadith',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primaryColor: primary,
+          colorScheme: ColorScheme.fromSeed(seedColor: primary),
           appBarTheme: const AppBarTheme(
+            color: primary,
             systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: primary),
           )),
       home: const NavigationPage(),

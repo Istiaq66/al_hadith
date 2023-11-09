@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import '../config/app_color.dart';
+import '../widgets/custom_icon.dart';
 import 'home.dart';
 
 class NavigationPage extends StatefulWidget {
@@ -17,6 +18,8 @@ class _NavigationPageState extends State<NavigationPage> {
     const Home(),
     const Home(),
     const Home(),
+    const Home(),
+    const Home(),
   ];
 
   void _onItemTapped(int index) {
@@ -27,28 +30,68 @@ class _NavigationPageState extends State<NavigationPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      body: screens[index], // Use the 'screens' List<Widget>
-      bottomNavigationBar: Material(
-        child: Container(
+    return DefaultTabController(
+      length: 5,
+      child: Scaffold(
+        extendBody: true,
+        body: screens[index], // Use the 'screens' List<Widget>
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.grey,
+                  blurRadius: 5.0,
+                  spreadRadius: 1,
+                  offset: Offset(
+                    0,
+                    0,
+                  ),
+                )
+              ]),
           margin: const EdgeInsets.symmetric(horizontal: 28, vertical: 20),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: TabBar(
-              onTap: _onItemTapped, // Handle tab bar item taps
-              tabs: const [
-                Tab(
-                  icon: Icon(Icons.home),
+          child: TabBar(
+            
+            indicatorColor: primary,
+            indicatorPadding: const EdgeInsets.symmetric(horizontal: 30),
+            onTap: _onItemTapped, // Handle tab bar item taps
+            tabs: [
+              const Tab(
+                icon: Icon(
+                  Icons.home_outlined,
+                  color: Colors.black,
                 ),
-                Tab(
-                  icon: Icon(Icons.home),
+              ),
+              Tab(
+                child: CustomIcon(
+                  asset: 'assets/readbook.png',
+                  index: index,
+                  myIndex: 1,
                 ),
-                Tab(
-                  icon: Icon(Icons.home),
+              ),
+              Tab(
+                child: CustomIcon(
+                  asset: 'assets/note.png',
+                  index: index,
+                  myIndex: 2,
                 ),
-              ],
-            ),
+              ),
+              Tab(
+                child: CustomIcon(
+                  asset: 'assets/bookmark.png',
+                  index: index,
+                  myIndex: 3,
+                ),
+              ),
+              Tab(
+                child: CustomIcon(
+                  asset: 'assets/person.png',
+                  index: index,
+                  myIndex: 4,
+                ),
+              ),
+            ],
           ),
         ),
       ),
