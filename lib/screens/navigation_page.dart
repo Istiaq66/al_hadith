@@ -52,7 +52,6 @@ class _NavigationPageState extends State<NavigationPage> {
               ]),
           margin: const EdgeInsets.symmetric(horizontal: 28, vertical: 20),
           child: TabBar(
-            
             indicatorColor: primary,
             indicatorPadding: const EdgeInsets.symmetric(horizontal: 30),
             onTap: _onItemTapped, // Handle tab bar item taps
